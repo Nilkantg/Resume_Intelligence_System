@@ -1,0 +1,36 @@
+# Core LangChain & LLM
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.2.0
+# langchain-groq>=0.2.0      # Uncomment if using Groq
+# langchain-anthropic>=0.3.0 # Uncomment if using Claude
+
+# Document Parsing
+pymupdf>=1.24.0              # Best for PDF (fast + layout aware)
+pymupdf4llm>=0.0.17          # PDF to clean Markdown
+python-docx>=1.1.0
+unstructured[pdf]>=0.15.0    # Optional but very useful
+
+# Structured Output & Utils
+pydantic>=2.8.0
+tiktoken>=0.7.0
+
+# Embeddings & Similarity
+langchain-huggingface>=0.1.0
+sentence-transformers>=3.0.0
+scikit-learn>=1.5.0
+
+# Data Handling & Reporting
+pandas>=2.2.0
+python-dotenv>=1.0.0
+jinja2>=3.1.0
+reportlab>=4.2.0             # For PDF report generation
+weasyprint>=62.0             # Alternative nice PDF/HTML reports (optional)
+
+# Development & Testing
+langsmith>=0.1.0             # For debugging/tracing
+pytest>=8.0.0
+
+# Optional but recommended
+pdfplumber>=0.11.0
+spacy>=3.7.0
