@@ -28,3 +28,17 @@ project/
 ├── requirements.txt
 ├── .env
 └── README.md
+
+# Parametrize model
+llm = ChatOpenAI(
+    model="gpt-4o",
+    temperature=0.7,     # 0.0 = deterministic, 1.0+ = creative/random
+    max_tokens=1000,     # max tokens in the response
+    top_p=0.9,           # nucleus sampling (alternative to temperature)
+    frequency_penalty=0, # penalize repeating same words (-2 to 2)
+    presence_penalty=0,  # penalize repeating same topics (-2 to 2)
+    timeout=30,          # seconds before request times out
+    max_retries=2,       # retry on failure
+    n=1,                 # number of completions to generate
+)
+
