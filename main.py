@@ -14,6 +14,7 @@ from src.analyzers import (
     SectionEvaluator,
     SkillGapAnalyzer,
 )
+from src.utils import ReportGenerator
 
 load_dotenv()
 
@@ -167,6 +168,19 @@ def main():
 
         with analysis_report_path.open("w", encoding="utf-8") as f:
             json.dump(analysis_report, f, indent=2, ensure_ascii=False)
+
+        ReportGenerator(output_dir).generate_full_report(
+            resume=resume,
+            ats_result=ats_score,
+            match_result=semantic_match,
+            skill_gap=skill_gap_analysis,
+            section_eval=section_evaluation,
+            summary=professional_summary,
+            improvements=resume_improvements,
+            keywords_opt=keyword_optimization,
+            job_description=job_description,
+            extraction_error=extraction_error,
+        )
 
         print(f"\nStructured resume saved to {structured_resume_path}")
         print(f"Analysis report saved to {analysis_report_path}")
