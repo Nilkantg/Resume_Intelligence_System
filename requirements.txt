@@ -34,3 +34,8 @@ pytest>=8.0.0
 # Optional but recommended
 pdfplumber>=0.11.0
 spacy>=3.7.0
+
+flask>=3.0.0
+flask-cors>=4.0.0
+werkzeug>=3.0.0
+python-multipart>=0.0.9
