@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume Intelligence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="workspace">
+      <div class="panel input-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Resume Intelligence</p>
+            <h1>Analyze a resume against a job description</h1>
+          </div>
+          <a class="ghost-link" href="/reports" target="_blank" rel="noreferrer">Reports</a>
+        </div>
+
+        <form id="analysis-form">
+          <label class="field-label" for="resume">Resume file</label>
+          <input id="resume" name="resume" type="file" accept=".pdf,.docx" required>
+
+          <label class="field-label" for="job_description">Job description</label>
+          <textarea id="job_description" name="job_description" rows="14" placeholder="Paste the job description here..."></textarea>
+
+          <label class="field-label" for="output_format">Output format</label>
+          <select id="output_format" name="output_format">
+            <option value="json">JSON summary</option>
+            <option value="markdown">Markdown report</option>
+          </select>
+
+          <button id="submit-button" type="submit">Analyze Resume</button>
+        </form>
+
+        <p id="status" class="status" role="status"></p>
+      </div>
+
+      <div id="result" class="result-panel" hidden>
+        <div class="result-header">
+          <div>
+            <p id="cache-label" class="eyebrow"></p>
+            <h2 id="candidate-name"></h2>
+            <p id="candidate-email" class="muted"></p>
+          </div>
+          <div class="actions">
+            <a id="json-download" class="button secondary" href="#" download>JSON</a>
+            <a id="markdown-download" class="button secondary" href="#" download>Markdown</a>
+          </div>
+        </div>
+
+        <div id="scores" class="score-grid"></div>
+
+        <section class="section-block">
+          <h3>Professional Summary</h3>
+          <p id="summary"></p>
+        </section>
+
+        <section class="section-block">
+          <h3>Key Value Proposition</h3>
+          <p id="value-proposition"></p>
+        </section>
+
+        <div class="list-grid">
+          <section class="section-block">
+            <h3>Missing Skills</h3>
+            <ul id="missing-skills"></ul>
+          </section>
+
+          <section class="section-block">
+            <h3>Recommended Keywords</h3>
+            <ul id="keywords"></ul>
+          </section>
+        </div>
+
+        <section class="section-block">
+          <h3>Top Improvements</h3>
+          <ul id="improvements"></ul>
+        </section>
+
+        <section id="raw-output-section" class="section-block" hidden>
+          <h3>Markdown Output</h3>
+          <pre id="raw-output"></pre>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
